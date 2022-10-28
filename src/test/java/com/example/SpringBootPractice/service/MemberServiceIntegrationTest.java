@@ -23,7 +23,6 @@ class MemberServiceIntegrationTest {
     @Autowired MemberService memberService;
     @Autowired MemberRepository memberRepository;
 
-    @Commit
     @Test
     void 화원가입() {
         //givien

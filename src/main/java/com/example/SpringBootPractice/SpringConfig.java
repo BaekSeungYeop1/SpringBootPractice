@@ -1,6 +1,7 @@
 package com.example.SpringBootPractice;
 
-import com.example.SpringBootPractice.repository.*;
+
+import com.example.SpringBootPractice.repository.MemberRepository;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import service.MemberService;
@@ -11,20 +12,19 @@ import javax.sql.DataSource;
 @Configuration
 public class SpringConfig {
 
-    private final DataSource dataSource;
-    private final EntityManager em;
+    private final MemberRepository memberRepository;
+    public SpringConfig(MemberRepository memberRepository) {
 
-    public SpringConfig(DataSource dataSource, EntityManager em) {
-
-        this.dataSource = dataSource;
-        this.em = em;
+        this.memberRepository = memberRepository;
     }
 
     @Bean
     public MemberService memberService() {
-        return new MemberService(memberRepository());
+        return new MemberService(memberRepository);
     }
 
+
+    /*
     @Bean
     public MemberRepository memberRepository() {
         // return new MemoryMemberRepository();
@@ -32,4 +32,6 @@ public class SpringConfig {
         // return new JdbcTemplateMemberRepository(dataSource);
         return new JpaMemberRepository(em);
     }
+
+     */
 }
