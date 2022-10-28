@@ -5,6 +5,7 @@ import com.example.SpringBootPractice.repository.MemberRepository;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.annotation.Commit;
 import org.springframework.transaction.annotation.Transactional;
 import service.MemberService;
 
@@ -22,6 +23,7 @@ class MemberServiceIntegrationTest {
     @Autowired MemberService memberService;
     @Autowired MemberRepository memberRepository;
 
+    @Commit
     @Test
     void 화원가입() {
         //givien
